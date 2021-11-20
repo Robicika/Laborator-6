@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Marton_Robert_Lab2master.Data;
 using Microsoft.EntityFrameworkCore;
+using Marton_Robert_Lab2master.Hubs;
 
 namespace Marton_Robert_Lab2master
 {
@@ -27,6 +28,8 @@ namespace Marton_Robert_Lab2master
         {
             services.AddControllersWithViews();
             services.AddDbContext<LibraryContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSignalR();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +57,8 @@ namespace Marton_Robert_Lab2master
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chathub");
+
             });
         }
     }
