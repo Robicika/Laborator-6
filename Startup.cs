@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Marton_Robert_Lab2master.Data;
 using Microsoft.EntityFrameworkCore;
 using Marton_Robert_Lab2master.Hubs;
+using Microsoft.AspNetCore.Identity;
 
 namespace Marton_Robert_Lab2master
 {
@@ -29,6 +30,42 @@ namespace Marton_Robert_Lab2master
             services.AddControllersWithViews();
             services.AddDbContext<LibraryContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSignalR();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.AllowedForNewUsers = true;
+            });
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+
+            });
+
+            services.AddRazorPages();
+
+            services.AddAuthorization(opts => {opts.AddPolicy("OnlySales", policy => {policy.RequireClaim("Department", "Sales");
+           });
+            }); 
+
+            services.AddAuthorization(opts => {opts.AddPolicy("SalesManager", policy => {
+                        policy.RequireRole("Manager");
+                        policy.RequireClaim("Department", "Sales");
+                    });
+                });
+
+                services.ConfigureApplicationCookie(opts =>
+                
+                {
+                    opts.AccessDeniedPath = "/Identity/Account/AccessDenied";
+
+                });
+            
+            
 
         }
 

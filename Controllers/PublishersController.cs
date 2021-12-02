@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Marton_Robert_Lab2master.Data;
 using Marton_Robert_Lab2master.Models;
 using Marton_Robert_Lab2master.Models.LibraryViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Marton_Robert_Lab2master.Controllers
 {
+    [Authorize(Policy = "OnlySales")]
     public class PublishersController : Controller
     {
         private readonly LibraryContext _context;
