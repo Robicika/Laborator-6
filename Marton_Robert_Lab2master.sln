@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marton_Robert_Lab2master", "Marton_Robert_Lab2master.csproj", "{4E65A8EC-6CE2-4B37-847E-DF15ADF559DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryModel", "..\LibraryModel\LibraryModel.csproj", "{8A7FBD5C-DA86-404F-AC47-582E08995DEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryModel", "..\LibraryModel\LibraryModel.csproj", "{8A7FBD5C-DA86-404F-AC47-582E08995DEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryWebAPI", "..\LibraryWebAPI\LibraryWebAPI.csproj", "{4CC71431-F0C9-43A2-A531-A99428F045EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryWebAPI", "..\LibraryWebAPI\LibraryWebAPI.csproj", "{4CC71431-F0C9-43A2-A531-A99428F045EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcCustomersService", "..\GrpcCustomersService\GrpcCustomersService.csproj", "{2D972EE2-1DEA-461E-ADED-67A64E661934}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4CC71431-F0C9-43A2-A531-A99428F045EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CC71431-F0C9-43A2-A531-A99428F045EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CC71431-F0C9-43A2-A531-A99428F045EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D972EE2-1DEA-461E-ADED-67A64E661934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D972EE2-1DEA-461E-ADED-67A64E661934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D972EE2-1DEA-461E-ADED-67A64E661934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D972EE2-1DEA-461E-ADED-67A64E661934}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
